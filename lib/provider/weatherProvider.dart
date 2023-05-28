@@ -81,19 +81,19 @@ class WeatherProvider with ChangeNotifier {
       temp9Hours = itemsHourly
           .map((item) => DailyWeather.fromHourlyJson(item))
           .toList()
-          .skip(1)
+          .skip(0)
           .take(3)
           .toList();
       temp72Hours = itemsHourly
           .map((item) => DailyWeather.fromHourlyJson(item))
           .toList()
-          .skip(1)
+          .skip(0)
           .take(24)
           .toList();
       temp5Days = itemsDaily
           .map((item) => DailyWeather.fromDailyJson(item))
           .toList()
-          .skip(1)
+          .skip(0)
           .take(40)
           .toList();
       next9Hours = temp9Hours;

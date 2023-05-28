@@ -9,6 +9,9 @@ class FiveDaysForecast extends StatelessWidget {
 
   Widget dailyWidget(dynamic weather, BuildContext context) {
     final dayOfWeek = DateFormat('EEE').format(weather.date);
+    final currentTime = weather.date;
+    final hours = DateFormat.Hm().format(currentTime);
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 7),
       child: Column(
@@ -27,6 +30,7 @@ class FiveDaysForecast extends StatelessWidget {
             child:
                 MapString.mapStringToIcon(context, '${weather.condition}', 35),
           ),
+          Text(hours),
           Text(
             '${weather.condition}',
           ),
