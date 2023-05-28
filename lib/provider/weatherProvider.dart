@@ -15,7 +15,7 @@ class WeatherProvider with ChangeNotifier {
   late Weather weather;
   DailyWeather currentWeather = DailyWeather();
   List<DailyWeather> next9Hours = [];
-  List<DailyWeather> next36Hours = [];
+  List<DailyWeather> next72Hours = [];
   List<DailyWeather> next5Days = [];
   bool isLoading = false;
   bool isRequestError = false;
@@ -74,7 +74,7 @@ class WeatherProvider with ChangeNotifier {
       final dailyData = json.decode(response.body) as Map<String, dynamic>;
       currentWeather = DailyWeather.fromJson(dailyData);
       List<DailyWeather> temp9Hours = [];
-      List<DailyWeather> temp36Hours = [];
+      List<DailyWeather> temp72Hours = [];
       List<DailyWeather> temp5Days = [];
       List itemsDaily = dailyData['list'];
       List itemsHourly = dailyData['list'];
@@ -84,7 +84,7 @@ class WeatherProvider with ChangeNotifier {
           .skip(1)
           .take(3)
           .toList();
-      temp36Hours = itemsHourly
+      temp72Hours = itemsHourly
           .map((item) => DailyWeather.fromHourlyJson(item))
           .toList()
           .skip(1)
@@ -97,7 +97,7 @@ class WeatherProvider with ChangeNotifier {
           .take(40)
           .toList();
       next9Hours = temp9Hours;
-      next36Hours = temp36Hours;
+      next72Hours = temp72Hours;
       next5Days = temp5Days;
     } catch (error) {
       print(error);

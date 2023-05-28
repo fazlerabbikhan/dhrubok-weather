@@ -57,7 +57,7 @@ class HourlyScreen extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.transparent,
           title: const Text(
-            'Next 36 Hours',
+            'Next 72 Hours',
             style: TextStyle(color: Colors.black),
           ),
         ),
@@ -66,7 +66,7 @@ class HourlyScreen extends StatelessWidget {
           width: mediaQuery.size.width,
           child: ListView(
             physics: const BouncingScrollPhysics(),
-            children: weatherData.next36Hours
+            children: weatherData.next72Hours
                 .map((item) => dailyWidget(item, context))
                 .toList(),
           ),
